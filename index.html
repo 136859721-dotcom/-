@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="蛋宝成长计划：轻触养成、喂养成长、每日领取粮食的 H5 产品页"
+    />
+    <title>蛋宝成长计划</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">E</span>
+          <span>蛋宝成长计划</span>
+        </div>
+        <div id="memberBadge" class="member-badge free">免费版</div>
+      </header>
+
+      <main class="game-area">
+        <section class="hero">
+          <p class="eyebrow">宠物养成 / 一次性购买 / 轻量活动</p>
+          <h1>陪小宠物一起成长</h1>
+          <p class="subtitle">
+            免费用户每天可轻触 5
+            次，购买养成道具后可获得更多成长次数与养成礼包。 每 20
+            次成长，小宠物会从蛋期成长到破壳期、幼年期、成长期，最终达到成熟期。
+          </p>
+        </section>
+
+        <section class="pet-card reveal">
+          <div class="pet-scene">
+            <div class="sun" aria-hidden="true"></div>
+            <div id="hammer" class="hammer" aria-hidden="true">
+              <span class="hammer-head"></span>
+              <span class="hammer-handle"></span>
+            </div>
+            <div id="egg" class="egg stage-0" aria-label="成长中的小宠物">
+              <div class="egg-glow"></div>
+              <div class="egg-shine"></div>
+              <div class="egg-crack crack-1"></div>
+              <div class="egg-crack crack-2"></div>
+              <div class="egg-crack crack-3"></div>
+              <div class="pet-body">
+                <span class="pet-ear left"></span>
+                <span class="pet-ear right"></span>
+                <span class="pet-tail"></span>
+                <span class="pet-eye left"></span>
+                <span class="pet-eye right"></span>
+                <span class="pet-mouth"></span>
+                <span class="pet-leg left"></span>
+                <span class="pet-leg right"></span>
+              </div>
+              <div class="egg-face">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="smile"></span>
+              </div>
+            </div>
+            <div id="stageTag" class="stage-tag">蛋期</div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span>今日成长</span>
+              <strong id="todayHitText">0/5</strong>
+            </div>
+            <div class="stat-box">
+              <span>成长值</span>
+              <strong id="growthText">0/20</strong>
+            </div>
+            <div class="stat-box">
+              <span>粮食库存</span>
+              <strong id="foodText">0</strong>
+            </div>
+          </div>
+
+          <div class="progress-card">
+            <div class="progress-top">
+              <span>成长进度</span>
+              <strong id="progressText">0%</strong>
+            </div>
+            <div class="progress-bar">
+              <span id="progressFill"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="reward-zone">
+          <div class="reward-box">
+            <span class="reward-label">当前阶段</span>
+            <strong id="rewardStage">蛋期</strong>
+          </div>
+          <div class="reward-box">
+            <span class="reward-label">今日领取</span>
+            <strong id="rewardClaim">未领取</strong>
+          </div>
+          <div class="reward-box highlight">
+            <span class="reward-label">奖励说明</span>
+            <strong>20次升级</strong>
+          </div>
+        </section>
+
+        <section class="action-panel">
+          <button id="hitBtn" class="primary-btn">轻触成长</button>
+          <button id="feedBtn" class="secondary-btn">喂养粮食</button>
+          <button id="claimBtn" class="ghost-btn">领取粮食</button>
+        </section>
+
+        <section class="rule-card">
+          <h3>玩法规则</h3>
+          <ul>
+            <li>免费用户：每天可轻触 5 次，次日自动重置。</li>
+            <li>一次性购买道具：可获得额外成长次数、粮食、服装等养成权益。</li>
+            <li>
+              每 20 次成长，阶段升级：蛋期 → 破壳期 → 幼年期 → 成长期 → 成熟期。
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <div class="support-footer">
+        <button id="supportBtn" class="support-btn" type="button" aria-label="联系客服">客服</button>
+      </div>
+
+      <div id="supportModal" class="support-modal hidden" aria-live="polite">
+        <div class="support-panel">
+          <div class="support-header">
+            <h3>客服中心</h3>
+            <button id="closeSupportBtn" class="close-btn" aria-label="关闭客服">×</button>
+          </div>
+          <div class="support-item">
+            <span class="support-label">客服电话</span>
+            <strong>400-123-4567</strong>
+          </div>
+          <div class="support-item">
+            <span class="support-label">工作时间</span>
+            <strong>9:00 - 18:00</strong>
+          </div>
+          <div class="support-item refund-box">
+            <span class="support-label">退款说明</span>
+            <strong>如支付后未到账、商品异常或用户误购，可通过客服申请处理。支付成功后如存在重复扣款、异常订单，请在 24 小时内联系客服核实处理。</strong>
+          </div>
+        </div>
+      </div>
+
+      <div id="followModal" class="follow-modal hidden" aria-live="polite">
+        <div class="follow-panel">
+          <div class="follow-header">
+            <h3>添加公众号</h3>
+            <button id="closeFollowBtn" class="close-btn" aria-label="关闭">×</button>
+          </div>
+          <div class="follow-body">
+            <div class="follow-qrcode" aria-hidden="true">公众号</div>
+            <p>请先关注公众号，并在公众号内回复“蛋宝”领取今日粮食。</p>
+            <div class="follow-account">公众号：蛋宝成长计划</div>
+            <button id="confirmFollowBtn" class="primary-btn follow-confirm">已关注公众号，去领取</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="toast" class="toast hidden" aria-live="polite"></div>
+
+      <div id="successBox" class="success-box hidden">
+        <div class="success-panel">
+          <div class="success-icon">✓</div>
+          <h3>购买成功</h3>
+          <p id="successText">养成道具已到账，继续陪小宠物成长吧！</p>
+          <button id="continueBtn" class="primary-btn">继续养成</button>
+        </div>
+      </div>
+
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
